@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!--***********************************************************************************************
+  * Copyright Finn (c) 2020.                                                                      *
+  ***********************************************************************************************-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_white">
+
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="test" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_text" />
+</androidx.constraintlayout.widget.ConstraintLayout>
