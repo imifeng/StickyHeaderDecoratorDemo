@@ -32,6 +32,11 @@ class StickyHeaderDecorator(context: Context) : RecyclerView.ItemDecoration() {
     val categoryHeaderMap = mutableMapOf<String, Int>()//记录每组子标题开始的位置
     private var categoryName = ""
 
+    companion object {
+        private const val CATEGORY_COUNT_MIN = 1
+        private const val SCREEN_FULL_CHILD_COUNT = 10
+    }
+
     fun setCategoryList(value: List<String>) {
         categoryList.clear()
         categoryList.addAll(value)
@@ -39,7 +44,7 @@ class StickyHeaderDecorator(context: Context) : RecyclerView.ItemDecoration() {
         categorySet.addAll(value)
 
         //如果子标题只有一个的情况，即隐藏粘性标题
-        if (categorySet.size > 1) {
+        if (categorySet.size > CATEGORY_COUNT_MIN) {
             hideCategoryHeader?.invoke(false)
         } else {
             hideCategoryHeader?.invoke(true)
@@ -201,7 +206,7 @@ class StickyHeaderDecorator(context: Context) : RecyclerView.ItemDecoration() {
 
     //判断是否需要隐藏子标题
     private fun isHideInventoryHeader(): Boolean {
-        return categorySet.size <= 1 || categoryList.isNullOrEmpty()
+        return categorySet.size <= CATEGORY_COUNT_MIN || categoryList.isNullOrEmpty()
     }
 }
 
